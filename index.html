@@ -24,123 +24,214 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
-        <style></style>
+        <style>
+.reveal mark *, .reveal mark {
+    color: #fff!important;
+}
+.reveal mark {
+    background-color: #E9530E!important;
+}
+        </style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
                 <section>
                     <h2>
-                        Китайские стратагем<span class="a1">ы</span>
+                        Архитектура. Другой взгляд
                     </h2>
+                </section>
+                <section>
+                    <img src="img/zolotykh.jpg" alt="Alexey Zolotykh 2007year">
+                    <h2>2007</h2>
+                </section>
+                <section>
                     <p>
-                        и как они помогают мне в работе
+                    Формула идеальной архитектуры
                     </p>
                 </section>
                 <section>
-                    <h2>
-                        Стратагема
-                    </h2>
                     <p>
-                    просчитанная последовательность действий, направленная на решение конкретной задачи...
+                        Жизнь надо прожить так, чтобы не было мучительно больно за бесцельно прожитые годы
                     </p>
                 </section>
                 <section>
-                    Причем здесь война?!
-                </section>
-                <!-- <section> -->
-                    <!-- <blockquote> -->
-                        <!-- Все законы реальности даны нам природой. Хотя не человек создавал их, понимая эти законы, мы можем использовать их, чтобы стимулировать -->
-                        <!-- собственное развитие и достигать цели -->
-                    <!-- </blockquote> -->
-                    <!-- <p class="fragment">Рэй Далио</p> -->
-                <!-- </section> -->
-                <section>
-                    <h2>
-                        Система  сдержек и противовесов
-                    </h2>
-                    <p class="fragment">По сути все построено на конфликтах</p>
+                    Я должен писать код так, чтобы не пришлось переписывать ВСЁ, если резко поменяются требования
                 </section>
                 <section>
-                    <h2>1. Полководец медлит, потому что разглядывает победу<span class="a1">.</span></h2>
+                    Архитектура должна быть гибкой
+                </section>
+                <section data-transition="slide none">
+                    <pre><code class="javascript" data-trim data-noescape>
+// simple function
+function add(x, y){
+  return x + y;
+}
+                    </code></pre>
+                </section>
+                <section data-transition="none">
+                    <pre><code data-trim data-noescape>
+// Check that arguments are numbers
+function add(x,y){
+  <mark>if(typeof x !== 'number' || typeof y !== 'number'){
+    throw new Error('can\'t summ not a number');
+  }</mark>
+  return x + y;
+}
+                    </code></pre>
+                </section>
+                <section data-transition="none">
+                    <pre><code data-trim data-noescape>
+// Check that arguments are numbers
+function add(x,y){
+ <mark>const parsedX = parseFloat(x,10);
+ const parsedY = parseFloat(y,10);</mark>
+
+  if(Number.isNaN(parsedX) || Number.isNaN(parsedY)){
+    throw new Error('can\'t summ not a number');
+  }
+  return x + y;
+}
+
+                    </code></pre>
+                </section>
+                <section data-transition="none slide">
+                    <pre><code data-trim data-noescape>
+// Check that arguments are numbers
+function add(x,y){
+ <mark>const parsedX = parseFloat(x,10);
+ const parsedY = parseFloat(y,10);</mark>
+
+  if(<mark>Number.isNaN(parsedX)</mark> || <mark>Number.isNaN(parsedY)</mark>){
+    throw new Error('can\'t summ not a number');
+  }
+  return x + y;
+}
+
+                    </code></pre>
                 </section>
                 <section>
-                    <img src="img/obvious.jpg" alt="">
-                    <p>Если подготовиться, то вы не будете не готовы</p>
+                    Number.MAX_VALUE?
                 </section>
                 <section>
-                    <blockquote>
-Выигрывает вовсе не тот, кто умеет играть по всем правилам; выигрывает тот, кто умеет отказаться в нужный момент от всех правил, навязать игре свои правила, неизвестные противнику, а когда понадобится — отказаться&nbsp;и&nbsp;от&nbsp;них.
-                    </blockquote>
+                    Что если аргументов будет 5?
                 </section>
                 <section>
-                    <img src="img/zolotyh.jpg" alt="">
+                    <pre><code data-trim data-noescape>
+                    console.log(add(10, 20));<span class="fragment">// 30???</span>
+                    </code></pre>
                 </section>
                 <section>
-                    <h2>2. В покое ожидать утомлённого&nbsp;врага<span class="a1">.</span></h2>
+                    Люди не дураки и в жизни так не бывает
+                </section>
+                <section data-transition="slide">
+                    <pre><code class="html" data-trim data-noescape>
+&lt;div class="ib-checkbox"&gt;
+    &lt;input type="checkbox" className="ib_checkbox--input"&gt;
+&lt;/div&gt;
+                    </code></pre>
+                </section>
+                <section data-transition="slide none">
+                    SOLID, DRY, YAGNI, KISS
+                </section>
+                <section data-transition="none slide">
+                    SOLID, <mark>DRY,</mark> YAGNI, KISS
                 </section>
                 <section>
-                    А давайте все перепишем на...
+                    Don’t repeat yourself
+                </section>
+                <section data-transition="slide none">
+                    <pre><code class="html" data-trim data-noescape>
+&lt;div class="ib-checkbox"&gt;
+    &lt;input type="checkbox" className="ib_checkbox--input"&gt;
+&lt;/div&gt;
+                    </code></pre>
+                </section>
+                <section data-transition="slide none">
+                    <pre><code class="html" data-trim data-noescape>
+&lt;div class="<mark>ib-checkbox</mark>"&gt;
+    &lt;input type="checkbox" className="<mark>ib_checkbox</mark>--input"&gt;
+&lt;/div&gt;
+                    </code></pre>
                 </section>
                 <section>
-                    Мне лень писать, давай обсудим голосом
-                </section>
-                <!-- <section> -->
-                    <!-- <h2>Наблюдать за огнём с противоположного берега</h2> -->
-                <!-- </section> -->
-                <section>
-                    <h2>3. Пожертвовать сливой чтобы&nbsp;спасти&nbsp;персик<span class="a1">.</span></h2>
-                </section>
-                <section>
-                    <p>Scrum головного мозга...</p>
-                </section>
-                <section>
-                    <h2>4. Указывая на тутовое дерево, ругать акацию<span class="a1">.</span></h2>
-                </section>
-                <section>
-                    <h4>
-                        От 3 до 5
-                    </h4>
+                    <pre><code data-trim>
+function bemClass(block: string) {
+    return (element?: string, mods?: object): string =&gt; {
+        if (!element) { return block; }
+        const result = [getElementClass(block, element)];
+        if (mods) {
+            forEach(mods, (needAdd, mod) =&gt; {
+                if (!needAdd) { return; }
+                result.push(getElementClass(block, element, mod));
+            });
+        }
+        return result.join(' ');
+    };
+}
+                    </code></pre>
                 </section>
                 <section>
-                    <h2>5. Прикидываться безумным, сохраняя рассудок<span class="a1">.</span></h2>
+                    <pre><code data-trim data-noescape>
+<mark>const bem = bemClass('checkbox');</mark>
+
+export default () =&gt; (
+  &lt;div class={<mark>bem()</mark>}&gt;
+    &lt;input type="checkbox" className={<mark>bem('input')</mark>}&gt;
+  &lt;/div&gt;
+)
+                    </code></pre>
                 </section>
                 <section>
-                    Не бояться задавать вопросы
+                    <pre><code class="jsx" data-trim data-noescape>
+const bem = bemClass('checkbox');
+
+export default () =&gt; (
+  &lt;div class={bem()}&gt;
+    &lt;input className={classnames({
+        [bem('input')]: true,
+        [bem('input', ['checked'])]: this.props.checked
+        })}&gt;
+  &lt;/div&gt;
+)
+                    </code></pre>
                 </section>
                 <section>
-                    <h2>6. Заманить на крышу и убрать&nbsp;лестницу<span class="a1">.</span></h2>
+                    <pre><code class="jsx" data-trim data-noescape>
+const bem = bemClass('checkbox');
+
+classnames({
+  [bem('input')]: true,
+  [bem('input', ['checked'])]: this.props.checked
+})
+                    </code></pre>
+                </section>
+                <section data-transition="slide none">
+                    <pre><code class="javascript" data-trim data-noescape>
+  `ib_checkbox--input
+  ${checked ? 'ib_checkbox--input__checked': ''}`
+                    </code></pre>
                 </section>
                 <section>
-                    Пути назад не будет...
+                    Есть DRY<span class="fragment">, но еще есть KISS</span>
                 </section>
                 <section>
-                    <h2>7. Если хочешь что-нибудь поймать, сначала отпусти<span class="a1">.</span></h2>
+                    Причем здесь архитектура?!
                 </section>
                 <section>
-                    Сайт как помидор...
+                    <img src="img/arch.jpg" alt="" sizes="" srcset="">
                 </section>
                 <section>
-                    Дать возможность сохранить лицо
+                    <img src="img/mvc.png" alt="" sizes="" srcset="">
+                    <p class="fragment">MVC</p>
                 </section>
                 <section>
-                    <h2>8. Бегство — лучшая стратагема<span class="a1">.</span></h2>
+                    <img src="img/flux.png">
+                    <p class="fragment">FLUX</p>
                 </section>
                 <section>
-                    <blockquote>
-                        Сто раз сразиться и сто раз победить — это не лучшее из лучшего;
-                        <br>
-                        лучшее из лучшего — покорить чужую армию, не сражаясь
-                    </blockquote>
                 </section>
-                <section>
-                    <h2 class="a1">Спасибо!</h2>
-                    <hr>
-                    <p>twitter: @zolotyh</p>
-                    <p>telegram:  @aazolotyh</p>
-                    <p>github: @zolotyh</p>
-                </section>
-			</div>
+            </div>
 		</div>
 
 		<script src="js/reveal.js"></script>
