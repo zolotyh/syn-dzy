@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <title>Китайские стратагемы сунь-цзы</title>
+        <title>Архитектура. Другой взгляд</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -42,6 +42,9 @@
                     </h2>
                 </section>
                 <section>
+                    <img src="img/infobip.svg" style="max-height: 600px" alt="" srcset="">
+                </section>
+                <section>
                     <p>
                         Жизнь надо прожить так, чтобы не было мучительно больно за бесцельно прожитые годы
                     </p>
@@ -50,7 +53,7 @@
                     Я должен писать код так, чтобы не пришлось переписывать ВСЁ, если резко поменяются требования
                 </section>
                 <section>
-                    Архитектура должна быть гибкой
+                    Хоршая архитектура должна быть гибкой!
                 </section>
                 <!-- <section data-transition="slide none"> -->
                     <!-- <pre><code class="javascript" data-trim data-noescape> -->
@@ -117,8 +120,8 @@
                 <!-- </section> -->
                 <section data-transition="slide">
                     <pre><code class="html" data-trim data-noescape>
-&lt;div class="ib-checkbox"&gt;
-    &lt;input type="checkbox" className="ib_checkbox--input"&gt;
+&lt;div className="ib-checkbox"&gt;
+    &lt;input type="checkbox" className="ib-checkbox--input"&gt;
 &lt;/div&gt;
                     </code></pre>
                 </section>
@@ -133,15 +136,15 @@
                 </section>
                 <section data-transition="slide none">
                     <pre><code class="html" data-trim data-noescape>
-&lt;div class="ib-checkbox"&gt;
-    &lt;input type="checkbox" className="ib_checkbox--input"&gt;
+&lt;div className="ib-checkbox"&gt;
+    &lt;input type="checkbox" className="ib-checkbox--input"&gt;
 &lt;/div&gt;
                     </code></pre>
                 </section>
                 <section data-transition="slide none">
                     <pre><code class="html" data-trim data-noescape>
-&lt;div class="<mark>ib-checkbox</mark>"&gt;
-    &lt;input type="checkbox" className="<mark>ib_checkbox</mark>--input"&gt;
+&lt;div className="<mark>ib-checkbox</mark>"&gt;
+    &lt;input type="checkbox" className="<mark>ib-checkbox</mark>--input"&gt;
 &lt;/div&gt;
                     </code></pre>
                 </section>
@@ -210,25 +213,42 @@ classnames({
                     Гибкость VS Сложность
                 </section>
                 <section>
-                    Причем здесь архитектура?!
+                    Самый гибкий фреймворк - язык программирования
                 </section>
                 <section>
-                    А что такое архитектура?
+                    Причем здесь архитектура, ты же про код говоришь?!
                 </section>
                 <section>
                     <img src="img/arch.jpg" alt="" sizes="" srcset="">
                 </section>
                 <section>
-                    Метафора, которой не было
+                    <p>
+                        Архитектура в IT &mdash; метафора
+                    </p>
+                    <p class="fragment">
+                        Метафора, которой не было...
+                    </p>
+                </section>
+                <section>
+                    <img src="img/lug.jpg" style="max-height: 400px">
+                    <p>Луковая архитектура</p>
+                </section>
+                <section data-background-color="#ffffff">
+                    <img src="img/onion_architecture.png">
+                </section>
+                <section>
+                    <h2>Metaphors We Live By</h2>
+                    <img src="img/metaphors.jpg" alt="" sizes="" srcset="">
+                    <p>George Lakoff and Mark Johnson </p>
                 </section>
                 <section>
                     <img src="img/s1200.jpeg">
                 </section>
                 <section>
-                    Давайте подумаем прежде чем писать!
+                    Давайте спланируем перед тем как делать!
                 </section>
                 <section>
-                    Архитектура = Дизайн
+                    Архитектура = План = Дизайн
                 </section>
                 <section>
                     Как все устроено в проектировании
@@ -280,6 +300,12 @@ classnames({
                     <p>
                         Теорема CAP (известная также как теорема Брюера)
                     </p>
+                    <img src="img/cap2.jpeg" />
+                </section>
+                <section>
+                    <p>
+                        Теорема CAP (известная также как теорема Брюера)
+                    </p>
                     <img src="img/cap.png" alt="" sizes="" srcset="">
                 </section>
                 <section>
@@ -296,6 +322,44 @@ classnames({
                 </section>
                 <section>
                     Operational transformation определит архитектуру
+                </section>
+                <section>
+                    <p>
+                        Доклад про все это
+                    </p>
+                    <p>
+                        Никита Прокопов — Клиенту и серверу нужно поговорить
+                    </p>
+                    <a href="https://youtu.be/uHGeI9_fgUw">youtu.be/uHGeI9_fgUw</a>
+                </section>
+                <section>
+                    Почему мы начали с алгоритма
+                </section>
+                <section>
+                    <h2>Про лень</h2>
+                     <p class="fragment">Lean</p>
+                </section>
+                <section>
+                     <p>
+                         Lean &mdash; концепция управления производственным предприятием, основанная на постоянном стремлении к устранению всех видов потерь
+                     </p>
+                </section>
+                <section>
+                    Имеет смысл откладывать ваши решения, если они не критичны
+                </section>
+                <section>
+                    Лишний дизайн = потери
+                </section>
+                <section>
+                    Со временем информации становиться больше
+                </section>
+                <section>
+                    <p>
+                    Robert C Martin - Clean Architecture and Design
+                    <br>
+                    (database is a detail)
+                    </p>
+                    <a href="https://www.youtube.com/watch?v=Nsjsiz2A9mg&feature=youtu.be&t=42m20s">youtu.be/Nsjsiz2A9mg?t=2541</a>
                 </section>
                 <section>
                     <p>
@@ -341,14 +405,7 @@ classnames({
                     <a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C_%D0%97%D0%B0%D0%BA%D0%BC%D0%B0%D0%BD%D0%B0">ru.wikipedia.org/wiki/Модель_Закмана</a>
                 </section>
                 <section>
-                    <p>Слои по Закману</p>
-                    <ul>
-                        <li class=fragment>Детальное представление</li>
-                        <li class=fragment>Технологическая модель</li>
-                        <li class=fragment>Системная модель</li>
-                        <li class=fragment>Модель бизнеса</li>
-                        <li class=fragment>Контекст</li>
-                    </ul>
+                    <img src="img/zahman.gif" alt="" sizes="" srcset="">
                 </section>
                 <section>
                     <p>Точки зрения по Закману</p>
@@ -362,30 +419,14 @@ classnames({
                     </ul>
                 </section>
                 <section>
-                     Lean
-                     <p>Будьте линивыми</p>
-                </section>
-                <section>
-                     <p>
-                         Lean &mdash; концепция управления производственным предприятием, основанная на постоянном стремлении к устранению всех видов потерь
-                     </p>
-                </section>
-                <section>
-                    Имеет смысл откладывать ваши решения, если они не критичны
-                </section>
-                <section>
-                    Лишний дизайн = потери
-                </section>
-                <section>
-                    Со временем информации становиться больше
-                </section>
-                <section>
-                    <p>
-                    Robert C Martin - Clean Architecture and Design
-                    <br>
-                    (database is a detail)
-                    </p>
-                    <a href="https://www.youtube.com/watch?v=Nsjsiz2A9mg&feature=youtu.be&t=42m20s">youtu.be/Nsjsiz2A9mg?t=2541</a>
+                    <p>Слои по Закману</p>
+                    <ul>
+                        <li data-fragment-index="5" class=fragment>Контекст</li>
+                        <li data-fragment-index="4" class=fragment>Модель бизнеса</li>
+                        <li data-fragment-index="3" class=fragment>Системная модель</li>
+                        <li data-fragment-index="2" class=fragment>Технологическая модель</li>
+                        <li data-fragment-index="1" class=fragment>Детальное представление</li>
+                    </ul>
                 </section>
                 <section>
                     И при чем здесь твои примеры?
@@ -396,13 +437,39 @@ classnames({
                 <section>
                     <img src="img/zahman.gif" alt="" sizes="" srcset="">
                 </section>
+                <section data-transition="slide none">
+                    <p>
+                    Хоршая архитектура должна быть гибкой!
+                    </p>
+                </section>
+                <section data-transition="none slide">
+                    <p>
+                    <strike>Хоршая архитектура должна быть гибкой!</strike>
+                    </p>
+                    <p>
+                        Архитектура должна подходить
+                    </p>
+                </section>
                 <section>
                     <h2>Выводы</h2>
                     <ul>
                         <li>Архитектура - важные решения</li>
-                        <li class="fragment">Решения есть уровнем выше</li>
-                        <li class="fragment">Лень - двитгатель прогресса</li>
+                        <li class="fragment">Ищи ответы уровнем выше</li>
+                        <li class="fragment">Лень - двигатель прогресса</li>
                     </ul>
+                </section>
+                <section>
+                    <h2>
+                         Спасибо!
+                    </h2>
+                    <p>Алексей Золотых</p>
+                    <p>
+                        twitter: @zolotyh
+                    </p>
+                    <p>
+                        telegram: @aazolotyh
+                    </p>
+
                 </section>
             </div>
 		</div>
